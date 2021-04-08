@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="{% url 'adminside:client-list' %}">Go back to Clients</a>
+    <hr/>
+    <h1>Update client: {{ client.user.username }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock content %}

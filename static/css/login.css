@@ -1,0 +1,83 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.lg-logo h1 {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.login {
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.lg h2 {
+    text-align: center;
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 27px;
+}
+
+.container {
+    display: block;
+    width: 500px;
+    height: 350px;
+    margin: 150px auto;
+}
+
+.min-container {
+    border: 2px solid rgb(75, 75, 75);
+    background-color: rgb(29, 28, 28);
+    display: block;
+    width: 325px;
+    height: 270px;
+    margin: auto;
+    border-radius: 50px;
+}
+
+.form-group input {
+    text-align: center;
+    font-size: medium;
+    width: 200px;
+    height: 25px;
+    padding: 1px;
+    border: 2px solid white;
+    margin: 11px auto;
+    border-radius: 25px;
+}
+
+.login button {
+    border: 2px solid white;
+    display: block;
+    width: 130px;
+    height: 30px;
+    padding: 1px;
+    margin: 11px auto;
+    border-radius: 18px;
+    font-size: medium;
+    font-weight: bold;
+}
+.form-group{
+    position: relative;
+}
+
+.form-group i{
+    position: absolute;
+    color: black;
+    right: 0px;
+    padding: 17px 12px;
+}
+.btn-lg{
+    display: inline-block;
+    position: relative;
+    padding: 8px 38px;
+}
+.btn-lg i{
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    margin: -34px 52px;
+    color: black;
+}

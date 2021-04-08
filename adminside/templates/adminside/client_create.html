@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_agent or request.user.is_organisor %}
+    <a href="{% url 'adminside:client-list' %}">Go back to Clients</a>
+    <hr/>
+    <h1>Create a new client</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ form.errors }}
+        <button type="submit">Submit</button>
+    </form>
+    {% endif %}
+{% endblock content %}

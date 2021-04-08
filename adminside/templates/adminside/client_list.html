@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_agent or request.user.is_organisor %}
+        <a href="{% url 'adminside:client-create' %}">Create a new client</a>
+        <hr />
+            {% if request.user.is_agent %}
+                <h1>This is your clients</h1>
+            {% endif %}
+            {% if request.user.is_organisor %}
+                <h1>These are the clients</h1>
+            {% endif %}
+        <ul class="list-group">
+            {% for client in clients %}
+                <div class="client">
+                    <li class="list-group-item">
+                        {{ client }}
+                        <a href="{% url 'adminside:client-detail' client.pk %}">
+                            View this client's details
+                        </a>
+
+                    </li>
+
+                </div>
+            {% endfor %}
+        </ul>
+        {% if organisor_clients.exists %}
+            <h1>Unassign agent clients</h1>
+            {% for client in organisor_clients %}
+
+            <div class="client">
+                <a href="{% url 'adminside:client-detail' client.pk %}">
+                    {{ client }}
+                </a>
+            </div>
+        {% endfor %}
+
+        {% endif %}
+    {% endif %}
+{% endblock content %}

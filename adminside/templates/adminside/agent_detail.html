@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_organisor %}
+    <a href="{% url 'adminside:agent-list' %}">Go back to agents</a>
+    <hr/>
+    <h1>This is details of agent {{ agent.user.username }}</h1>
+    <p>bal: {{ agent.bal }}</p>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <a href="{% url 'adminside:agent-update' agent.pk %}">
+                Update
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{% url 'adminside:agent-delete' agent.pk %}">
+                Delete
+            </a>
+        </li>
+    </ul>
+    {% endif %}
+{% endblock content %}

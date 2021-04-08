@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+        <a href="{% url 'adminside:client-create' %}">Create a new client</a>
+        <hr />
+        <h1>These are the agents</h1>
+
+        <ul class="list-group">
+            {% for agent in agents %}
+                <div class="agent">
+                    <li class="list-group-item">
+                        {{ agent }}
+                        <a href="{% url 'adminside:agent-detail' agent.pk %}">
+                            View this agent's details
+                        </a>
+                    </li>
+                </div>
+            {% endfor %}
+        </ul>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_organisor %}
+    <a href="{% url 'adminside:agent-list' %}">Go back to agents</a>
+    <hr/>
+    <h1>Update agent: {{ agent.user.username }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    {% endif %}
+{% endblock content %}

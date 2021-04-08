@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_organisor %}
+    <a href="{% url 'adminside:agent-create' %}">Create a new agent</a>
+    <hr />
+
+    <h1>This is our agents</h1>
+    <ul class="list-group">
+        {% for agent in agents %}
+            <div class="agent">
+                <li class="list-group-item">
+                    {{ agent }}
+                    <a href="{% url 'adminside:agent-clients' agent.pk %}">
+                        View this agent's clients
+                    </a>
+
+                </li>
+
+            </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock content %}

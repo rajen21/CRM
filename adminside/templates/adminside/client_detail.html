@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if request.user.is_agent or request.user.is_organisor %}
+        <a href="{% url 'adminside:client-list' %}">Go back to clients</a>
+        <hr/>
+        <h1>This is details of client {{ client.user.username }}</h1>
+        <p>bal: {{ client.bal }}</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'adminside:client-update' client.pk %}">Update</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'adminside:client-delete' client.pk %}">Delete</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{% url 'adminside:client-add-bal' client.pk %}">Add balance</a>
+            </li>
+            {% if request.user.is_organisor %}
+                <li class="list-group-item">
+                    <a href="{% url 'adminside:assign-agent' client.pk %}">
+                        Assign agent
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,65 @@
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="header-top col-md-12">
+                <div class="float-left">
+                    <a href="{% url 'adminside:home' %}" class="logo router-link-exact-active router-link-active">
+                        <span class="logo-icon">CRM</span>
+                    </a>
+                </div>
+<!--                <div class="float-right">-->
+
+                    <div class="menu-dropdown">
+                        {% if request.user.is_agent %}
+                            <span class="balance">
+                                Bal: {{ request.user.agent.bal }}
+                            </span>
+                        {% endif %}
+                        {% if request.user.is_client %}
+                            <span class="balance">
+                                Bal: {{ request.user.client.bal }}
+                            </span>
+                        {% endif %}
+                        <a href="#" onclick="menuFunction()" class="menu-dropbtn">
+                            {{ request.user.username }}
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+
+                        <div id="menuDropdown" class="menu-dropdown-content">
+                            <a href="{% url 'adminside:password-change-view' %}">Change Password</a>
+                            <br />
+                            <a href="{% url 'adminside:logout' %}">Sign Out</a>
+                        </div>
+                    </div>
+            </div>
+            <div class="header-bottom m-t-10 col-md-12">
+                <nav class="navbar navbar-expand-md btco-hover-menu">
+                    <div class="collapse navbar-collapse">
+                        <ul class="list-unstyled navbar-nav">
+                            <li class="nav-item active">
+                                <a href="{% url 'adminside:home' %}" class="router-link-exact-active router-link-active"><b>Home</b></a>
+                            </li>
+                            <li class="nav-item newlacunch-menu">
+                                <a href="{% url 'adminside:client-list' %}" class=""><b>Clients</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'adminside:agent-list' %}" class=""><b>Agents</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'adminside:agent-clients-list' %}" class=""><b>Agent's clients</b></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div>
+        <!---->
+    </div>
+    <div class="modal-market">
+        <!---->
+    </div>
+    <!---->
+</header>
